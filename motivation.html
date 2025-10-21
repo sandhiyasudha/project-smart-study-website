@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #3a0ca3, #7209b7, #4361ee);
+      color: white;
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 15px;
+    }
+
+    #quote {
+      font-size: 1.3rem;
+      width: 80%;
+      max-width: 600px;
+      margin-bottom: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    button {
+      background: #7209b7;
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #560bad;
+      transform: scale(1.05);
+    }
+
+    .logout-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #f72585;
+    }
+  </style>
+</head>
+<body>
+  <button id="logoutBtn" class="logout-btn">Logout</button>
+
+  <h1>🌟 Stay Motivated! 🌟</h1>
+  <p id="quote">Loading quote...</p>
+  <button id="newQuoteBtn">✨ New Quote</button>
+
+  <script>
+    const quotes = [
+      "Believe you can and you're halfway there. 💪",
+      "Don't watch the clock; do what it does. Keep going. ⏰",
+      "Success doesn’t come from what you do occasionally, it comes from what you do consistently. 📚",
+      "The future depends on what you do today. 🌅",
+      "Push yourself, because no one else is going to do it for you. 🚀",
+      "It always seems impossible until it’s done. 🌟",
+      "You don’t have to be great to start, but you have to start to be great. ✨",
+      "Dream big. Work hard. Stay humble. 💜",
+      "Study hard now, shine later. 🌠",
+      "Every chapter you study is a step closer to success. 📖"
+    ];
+
+    const quoteElem = document.getElementById("quote");
+    const newQuoteBtn = document.getElementById("newQuoteBtn");
+
+    // Function to show a random quote
+    function showRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteElem.textContent = quotes[randomIndex];
+    }
+
+    // First quote when page loads
+    showRandomQuote();
+
+    // Change quote on button click
+    newQuoteBtn.addEventListener("click", showRandomQuote);
+
+    // Logout functionality
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      alert("Logged out successfully!");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

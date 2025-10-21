@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <h1>Enter Your Subjects</h1>
+
+    <input type="text" id="subjectName" placeholder="Subject Name">
+    <input type="number" id="totalChapters" placeholder="Total Chapters">
+    <button id="addSubjectBtn">Add Subject</button>
+
+    <div id="subjectList"></div>
+    <button id="doneBtn" style="display:none;">Done</button>
+  </div>
+
+  <script src="student.js"></script>
+  <script>
+    const doneBtn = document.getElementById("doneBtn");
+
+    function updateDoneButton() {
+      doneBtn.style.display = subjects.length > 0 ? "block" : "none";
+    }
+
+    updateDoneButton();
+    const origRender = renderSubjects;
+    renderSubjects = function() {
+      origRender();
+      updateDoneButton();
+    };
+
+    doneBtn.addEventListener("click", () => {
+      alert("Subjects saved successfully!");
+      window.location.href = "progress.html";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recommendations</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-container">
+  <h1>Study Recommendations</h1>
+  <p id="recommendationText"></p>
+  <button id="doneRecommend">Done</button>
+</div>
+
+<script>
+  // Load subjects from localStorage
+  const subjects = JSON.parse(localStorage.getItem("subjects")) || [];
+  const recText = document.getElementById("recommendationText");
+
+  if(subjects.length === 0){
+    recText.innerText = "Add subjects first in Student Details.";
+  } else {
+    // Find subject with lowest progress
+    const lowest = subjects.reduce((a,b)=> (a.completed/a.total < b.completed/b.total ? a : b));
+    recText.innerText = `Focus more on ${lowest.name}, progress is low.`;
+  }
+
+  // Done button → Motivation page
+  document.getElementById("doneRecommend").addEventListener("click", ()=>{
+    window.location.href = "motivation.html";
+  });
+</script>
+</body>
+</html>

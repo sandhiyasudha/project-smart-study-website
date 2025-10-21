@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timetable Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-container">
+  <h1>Generate Your Timetable</h1>
+
+  <h2>Normal Study Timetable</h2>
+  <input type="number" id="availableHours" placeholder="Available hours per day">
+  <input type="number" id="studyDays" placeholder="Number of days">
+  <button id="generateNormal">Generate Normal Timetable</button>
+
+  <h2>Exam Study Timetable</h2>
+  <input type="text" id="examSubject" placeholder="Exam Subject">
+  <input type="number" id="examTotalChapters" placeholder="Total Chapters">
+  <input type="number" id="examEveningHours" placeholder="Evening Hours">
+  <input type="number" id="examMorningHours" placeholder="Morning Hours">
+  <button id="generateExam">Generate Exam Timetable</button>
+
+  <div id="timetableOutput"></div>
+  <button id="doneTimetable" style="display:none;">Done</button>
+</div>
+
+<script src="student.js"></script>
+<script src="timetable.js"></script>
+</body>
+</html>

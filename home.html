@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Planner - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <h1>Welcome to Your Study Planner</h1>
+
+    <p>Plan your studies, track your progress, and stay motivated!</p>
+
+    <div class="home-buttons">
+      <button onclick="goTo('student.html')">📘 Student Details</button>
+      <button onclick="goTo('progress.html')">📊 Progress Tracker</button>
+      <button onclick="goTo('timetable.html')">🕒 Timetable Planner</button>
+      <button onclick="goTo('motivation.html')">💪 Motivation</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </div>
+  </div>
+
+  <script>
+    function goTo(page) {
+      window.location.href = page;
+    }
+
+    function logout() {
+      if (confirm("Are you sure you want to log out?")) {
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+</html>
